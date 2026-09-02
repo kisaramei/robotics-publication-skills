@@ -1,0 +1,4 @@
+interface:
+  display_name: "Robotics Response"
+  short_description: "Prepare journal revisions and conference rebuttals"
+  default_prompt: "Use $robotics-response to prepare an evidence-grounded journal revision response or conference rebuttal."

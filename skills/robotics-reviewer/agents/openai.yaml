@@ -1,0 +1,4 @@
+interface:
+  display_name: "Robotics Reviewer"
+  short_description: "Venue-aware review for robotics and embodied AI"
+  default_prompt: "Use $robotics-reviewer to run three mutually blind, venue-aware reviews of my robotics manuscript."

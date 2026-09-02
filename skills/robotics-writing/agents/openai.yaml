@@ -1,0 +1,4 @@
+interface:
+  display_name: "Robotics Publication Writing"
+  short_description: "Draft robotics and ML papers for submission"
+  default_prompt: "Use $robotics-writing to draft a robotics or ML manuscript section from these claims, results, and figures."

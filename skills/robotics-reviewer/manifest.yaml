@@ -1,0 +1,32 @@
+name: robotics-reviewer
+version: 2.0.0
+description: >
+  Declarative manifest for venue-aware, mutually blind pre-submission review of
+  robotics, embodied-AI, VLA, ML, CV, and NLP manuscripts.
+
+# Design note: reviewer simulation remains grounded, mutually blind, and
+# non-inventive. Venue policy is supplied or verified at runtime.
+
+always_load:
+  - references/source-basis.md
+
+references:
+  on_demand:
+    - condition: executing the full isolated-review workflow, preparing immutable reviewer inputs, or resolving assessment order
+      path: references/reviewer-workflow.md
+    - condition: mapping generic scholarly axes to current verified target-venue criteria or assigning reviewer emphasis
+      path: references/review-axes.md
+    - condition: building the internal concern ledger, calibrating Major/Minor severity and Blocking status, checking technical coverage, or anchoring concerns to manuscript claims and evidence locations
+      path: references/technical-concern-taxonomy.md
+    - condition: manuscript makes claims in ML, CV, NLP, VLA, robotics, embodied AI, autonomy, control, or physical deployment
+      path: references/domain-specific-review-gates.md
+    - condition: target venue is Nature or the user explicitly requests a Nature-style review
+      path: references/editorial criteria and processes.md
+    - condition: composing or auditing mutually blind reviewer reports with Major Concerns, Minor Comments, Blocking flags, and a post-review synthesis
+      path: references/report-structure.md
+    - condition: enforcing reviewer mutual blindness or preventing invented identities, editor decisions, or inappropriate reviewer-role claims
+      path: references/role-boundaries.md
+    - condition: final venue-policy, reviewer-isolation, severity, groundedness, coverage, and non-invention QA before delivery
+      path: references/qa-checklist.md
+    - condition: checking the manuscript against itself — headline counts that do not reconcile with the Methods, a metric reported at two precisions, superlatives contradicted by the paper's own tables, overlapping error bars presented as an advantage, and internal summaries that disagree; these are the cheapest findings a referee can make and belong in Major or Minor Concerns with the contradicting table cited
+      path: ../nature-shared/core/consistency-sweep.md
