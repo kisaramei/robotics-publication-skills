@@ -48,8 +48,8 @@ axes:
   section:
     detect: |
       Identify which section(s) the user wants drafted or rebuilt. The user
-      may name one or several. Ask before loading when ambiguous and load
-      cost matters. Title and abstract often need to be drafted last but
+      may name one or several. Ask only when unresolved section ambiguity
+      materially affects the draft. Title and abstract often need to be drafted last but
       planned early.
     values:
       abstract:       static/fragments/section/abstract.md

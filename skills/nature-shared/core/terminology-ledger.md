@@ -5,14 +5,16 @@ gene, metric, or concept must not drift across shifting names, spellings, or
 capitalisation. Reviewers read inconsistent terminology as careless work, and a
 term that changes between sections forces the reader to re-learn it.
 
-Build the ledger **before** drafting or polishing prose, and treat it as the
-single source of truth for the rest of the job. Consistency against a standard
-is impossible if the standard was never written down.
+Reuse the manuscript's established terminology when drafting or polishing prose.
+Build a compact ledger when recurring terms or variants need tracking; its scope
+should match the requested passage, section, or manuscript.
 
 ## 1. Build the ledger on first contact
 
-When you first receive a manuscript, draft, or set of notes, extract every
-recurring domain term into a ledger before editing any prose:
+On first contact, identify the recurring terms relevant to the requested work.
+For a full manuscript, track these in a ledger before drafting across sections;
+for a short passage, use the supplied terminology directly unless a collision
+needs resolution. Relevant categories include:
 
 - methods, models, systems, algorithms, modules, frameworks
 - datasets, benchmarks, cohorts, materials, reagents
@@ -26,7 +28,9 @@ abbreviations), and any variants already present in the source.
 
 ## 2. Present the ledger to the user
 
-Show a compact table before or alongside the first output:
+Show a compact table when the user requests it, when coordinating a full manuscript,
+or when important terminology choices need review. A short edit with unambiguous
+terminology needs no separate table. For example:
 
 | Canonical term | First-use definition | Variants seen in source | Decision |
 |---|---|---|---|
@@ -48,8 +52,9 @@ Once set, the ledger is fixed for the whole job:
 - Keep units, symbols, and notation identical across every section.
 - When drafting or polishing a later section, reference the ledger built from
   the earlier sections instead of re-deciding term by term.
-- If the user later renames a term, change every occurrence in the manuscript,
-  not just the current passage, and update the ledger.
+- If the user later renames a term, update its occurrences within the requested
+  scope and the ledger. Flag related occurrences outside that scope; a local
+  wording request does not automatically authorize a manuscript-wide rewrite.
 
 ## 4. Do not invent terms
 

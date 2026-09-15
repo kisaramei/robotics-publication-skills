@@ -4,7 +4,7 @@ When the source is Chinese or strongly Chinese-influenced English, do not transl
 
 ## Workflow
 
-1. Extract the core propositions first. List them in plain English before drafting prose.
+1. Identify the core propositions before drafting prose. Keep this planning internal unless the user asks for it or a material ambiguity needs explanation.
 2. Reconstruct explicit logical links: contrast, cause, implication, limitation. Chinese academic prose often elides these connectives — restore them.
 3. Verify terminology, causality, and hedging strength against the source.
 4. Keep technical terms, gene/protein names, model names, dataset names, and statistical terms stable; do not "translate" them into rough paraphrases.

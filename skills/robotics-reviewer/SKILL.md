@@ -31,6 +31,22 @@ Determine the target venue before applying venue-specific criteria.
 - Load the bundled Nature criteria only when Nature is the target venue or the user explicitly
   asks for a Nature-style review. They are not the default rubric.
 
+## Review scope
+
+Use the reviewer count and output structure requested for this task. For a full mock review
+without a specified count or structure, use `3 mutually blind reviewer reports + 1 post-review
+synthesis`. For multiple reviewers, include synthesis unless the user requests reports only.
+Use the selected count and synthesis choice throughout generation and QA. Full reports record
+them in the review setup; compact reviews need no separate setup block.
+
+For one reviewer, produce one report without adding reviewers or a cross-review synthesis.
+If the user also requests a summary, summarize that report without claiming reviewer consensus.
+Mutual-blindness, cross-review comparison, and overlap checks apply only to multiple reviewers;
+a single review may run in the current context.
+
+Use the compact output below when the user requests a brief review or a targeted local check,
+such as an abstract's argument. Use the full report when requested or for a full mock review.
+
 ## Default stance
 
 - Ground every review in the immutable manuscript packet, verified venue policy, and facts
@@ -39,12 +55,11 @@ Determine the target venue before applying venue-specific criteria.
   clarity, significance, and fit. Map them to the verified target-venue rubric rather than
   forcing one journal's axes onto every manuscript.
 - Apply the focused ML and robotics gates only when the manuscript's claims activate them.
-- Return exactly `3 mutually blind reviewer reports + 1 post-review synthesis` by default. Honor
-  an explicit request for one reviewer or another structure.
+- Follow the selected reviewer count and output structure under **Review scope**.
 - Give every reviewer only the same immutable manuscript and policy packet, the same report
   skeleton, and that reviewer's preassigned emphasis. Never provide another report, a shared
   concern ledger, a draft synthesis, or hints about what another reviewer noticed.
-- Run each reviewer in a genuinely separate context, subagent, process, or invocation. If the
+- For multiple reviewers, run each in a genuinely separate context, subagent, process, or invocation. If the
   environment cannot isolate contexts, generate one report per invocation or disclose that
   mutual blindness cannot be guaranteed.
 - Define emphasis briefs before any report is generated. They are working lenses, not reviewer
@@ -53,10 +68,12 @@ Determine the target venue before applying venue-specific criteria.
   valid evidence and must not be edited away.
 - Give every substantive concern a stable ID, a faithful `claim_pointer`, and a verifiable
   `evidence_pointer`. Mark missing locations instead of inventing them.
-- Separate user-visible concerns into `Major Concerns` and `Minor Comments`. Mark a Major
+- In full reports, separate concerns into `Major Concerns` and `Minor Comments`; in compact
+  reviews, show severity inline without requiring category headings. Mark a Major
   Concern `Blocking Yes` only when the current manuscript cannot establish its central case until
   that concern is resolved. Minor Comments are never blocking.
-- Do not impose a concern quota. If no grounded concern exists at a level, say so.
+- Do not impose a concern quota. Full reports label empty tiers; compact reviews omit them.
+  If no grounded concern exists at all, say so briefly.
 - Keep criticism direct and professional. Severity comes from impact on the manuscript's case,
   not from hostile wording.
 - Distinguish supported, weak, and not-assessable claims.
@@ -109,23 +126,43 @@ If the material is partial, perform a bounded review and state the assessment bo
 3. Build one immutable review packet containing only supplied manuscript material, verified
    source anchors, the assessment boundary, and the common venue or generic criteria. Do not add
    suspected concerns.
-4. Define reviewer count and emphasis briefs before launching any reviewer.
-5. Launch each reviewer in an isolated context with the immutable packet, its emphasis brief,
-   common report skeleton, and grounding rules.
+4. Apply **Review scope** to select the reviewer count, synthesis choice, and emphasis briefs
+   before launching any reviewer.
+5. Give each reviewer the immutable packet, its emphasis brief, common report skeleton, and
+   grounding rules. Use isolated contexts for multiple reviewers.
 6. Inside each review, independently assess the applicable venue criteria and build a private
    concern ledger. Load only the applicable ML, VLA, or robotics gates.
 7. Finalize and freeze every reviewer report before comparison.
-8. In a separate synthesis pass, reconcile independently created concerns. Label consensus only
-   when at least two frozen reports raised the same underlying issue.
+8. If the selected scope includes cross-review synthesis, reconcile independently created
+   concerns in a separate pass. Label consensus only when at least two frozen reports raised
+   the same underlying issue. Skip this step for a single report.
 9. Run QA for reviewer isolation, venue-policy provenance, leakage and comparison validity,
    severity, evidence anchors, groundedness, role boundaries, and non-invention.
 
 ## Output format
 
-Unless the user requests another format, return:
+Use the selected count, scope, and structure from **Review scope**.
+
+### Compact review
+
+Return one sentence stating the assessment boundary and policy basis when relevant, followed
+by one compact bullet per substantive issue. Combine the stable ID, Major/Minor severity,
+Blocking Yes/No for Major concerns, challenged claim and evidence location inline. Explain
+the impact and resolution in the same bullet, without expanding these into separate fields.
+
+Omit empty categories and repeated overall assessments, strengths, axis-by-axis assessments,
+blocking summaries, and risk sections. Put any material limitation beside the issue or in the
+opening sentence. Preserve evidence and severity standards; brevity changes presentation.
+
+### Full review
+
+The following skeleton illustrates
+the report fields; repeat reviewer blocks only for the selected reviewers and include synthesis
+only when selected for a multi-reviewer task.
 
 ```text
 Review setup
+- Reviewer count and synthesis choice [value]
 - Target venue and track [value]
 - Venue-policy status [supplied / runtime verified / unverified]
 - Policy edition, access date, and official sources [value]
@@ -164,13 +201,10 @@ For each Minor Comment
 - Issue [text]
 - Required correction [text]
 
-Reviewer 2
-[Same structure]
+Additional selected reviewers, if any
+[Same structure, numbered Reviewer 2 through Reviewer N]
 
-Reviewer 3
-[Same structure]
-
-Cross-review synthesis (post-review; not shown to reviewers)
+Cross-review synthesis (post-review; not shown to reviewers; only when selected)
 - Consensus strengths [text]
 - Consensus blocking concerns [items]
 - Other consensus major concerns [items]

@@ -47,8 +47,9 @@ experiment, implementation detail, citation, dataset property, or venue requirem
 
 ## Conservative implementation choices
 
-- The default package contains three mutually blind reports plus a post-review synthesis. This is
-  a workflow choice, not a claim about the target venue's actual review process.
+- A full mock review defaults to three mutually blind reports plus a post-review synthesis,
+  subject to the user's selected count and structure under [Review scope](../SKILL.md#review-scope).
+  This is a workflow choice, not a claim about the target venue's actual review process.
 - Every reviewer receives the same immutable manuscript and policy packet. Reviewers differ only
   by preassigned emphasis.
 - Reviewer identities, institutions, seniority, and specialties are never invented.

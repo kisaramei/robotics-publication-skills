@@ -1,18 +1,15 @@
 # Output format (writing)
 
-Default output:
+Lead with the requested deliverable and follow the user's format.
 
-1. `Draft:` — the requested prose.
-2. `Section outline:` — `3-7` compact bullets when the task involves a full section.
-3. `Assumptions or missing inputs:` — only material issues; do not pad with style nits.
-4. `Claim-evidence map:` — for major claims, in the form:
-   `Claim: ... | Evidence: ... | Status: supported / needs evidence / inferred`
-5. `Why this structure:` — `2-4` short bullets on the structural choices made.
-6. `To redirect me:` — one line inviting targeted feedback, e.g. "Name the paragraph or claim that is off and I will revise only that, keeping the rest." This sets up the targeted revision loop (workflow step 9) instead of a full rewrite.
+- For a short passage, title, or local revision, return the prose plus any material missing fact or evidence gap. Do not add a fixed set of notes or a feedback invitation.
+- For a full section or major restructuring, add a compact outline, claim-evidence map, or explanation of structural choices only when it helps the user assess the draft or was requested. Do not require all three.
+- Where a claim-evidence map is useful, use `Claim: ... | Evidence: ... | Status: supported / needs evidence / inferred`.
+- Omit empty sections and routine style commentary. Surface material assumptions or missing inputs without padding a bullet quota.
 
 For Chinese-author notes, provide polished English first, then brief Chinese notes explaining major structural choices.
 
-For a Results or full-main-text restructuring task, also include a compact
+For Results restructuring or full-main-text compression, include a compact
 `Main-text discipline audit:` after the prose:
 
 - result allocation: core / necessary support / qualification / SI-bound detail
@@ -22,10 +19,11 @@ For a Results or full-main-text restructuring task, also include a compact
 
 Return the full allocation and claim-repetition tables only when the manuscript
 is being comprehensively restructured or the user asks for the audit trail.
+For a short Results passage, include only material evidence-placement changes or gaps; do not require a separate audit block.
 
 If essential evidence or boundary is missing, do not invent. Write a placeholder such as `[Evidence needed: comparator group accuracy on test set X]` and list it under `Assumptions or missing inputs:`.
 
-For `task=submission-package`, replace the default manuscript format with:
+For a complete `task=submission-package` request, organize the package with:
 
 1. `Submission readiness:`
 2. `Deliverable matrix:`
@@ -33,3 +31,5 @@ For `task=submission-package`, replace the default manuscript format with:
 4. `AUTHOR_INPUT_NEEDED:`
 5. `Cross-file consistency checks:`
 6. `Next actions:`
+
+For an individual submission document, return that document and only its material missing inputs or readiness issues; do not expand it into a full package.

@@ -13,8 +13,6 @@ def test_decision_type_gate_is_part_of_the_runtime_contract() -> None:
     workflow = read("static/core/workflow.md")
 
     assert "Major Revision" in router and "Minor Revision" in router
-    assert "pause and ask the user" in workflow
-    assert "do not draft a generic response" in workflow
     assert "Skip this gate entirely for `conference-rebuttal`" in router
     assert "skip the Major/Minor gate" in workflow
 

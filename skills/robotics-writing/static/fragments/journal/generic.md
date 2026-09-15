@@ -6,14 +6,16 @@ another fragment.
 ## Defaults
 
 - Apply a venue-neutral evidence-first structure: explicit problem, bounded
-  contribution, traceable evidence, limitations, and one job per paragraph.
+  contribution, traceable evidence, limitations, and one central message per paragraph.
 - Do not import Nature-specific broad-audience framing, claim escalation,
   summary-paragraph conventions, or journal limits unless the user selects a
   Nature Portfolio venue.
 - Keep em-dash and hedging defaults from `core/stance.md` and `language/en.md`.
-- If the user later names a venue, ask whether to re-draft under that venue's fragment rather than guess.
+- If the user later asks to adapt the draft to a named venue, use the matching fragment and verified requirements.
 
-## Things to ask the user before final draft
+## Venue inputs when they affect the requested draft
+
+Use supplied information first. A venue-neutral draft can proceed without these details; ask under `static/core/workflow.md` step 3b only when a missing choice materially affects the requested deliverable.
 
 - Target venue, submission year, and section format (structured vs unstructured
   abstract; page or word limits; reference style).

@@ -42,19 +42,27 @@ description: >-
 
 ### Step 2: 多源并行查询
 
-**Step 2.0（最便宜、最先做）：DOI 可解析性检查。** 对每条有 DOI 的文献先请求 `https://api.crossref.org/works/<DOI>`：404 → DOI 本身错误（高度疑似错号）；200 → 比对返回记录的标题/作者/卷期页与条目，不一致即"DOI 张冠李戴"。单次请求即可发现实践中最常见的一类错误（一次 35 条核查中 7/9 的错误属于此类）。
+**Step 2.0：DOI 元数据初查。** 对每条有 DOI 的文献先请求 `https://api.crossref.org/works/<DOI>`：
+
+- `200`：比对返回记录的标题、作者及出版信息；只有确认记录属于另一篇论文时，才判为“DOI 张冠李戴”。
+- `404`：仅表示 Crossref 未找到记录，标为“待核验”，不能据此判定 DOI 错误。通过 `https://doi.org/<DOI>`、注册机构查询或出版方页面继续核验；例如 arXiv 的部分 DOI 由 DataCite 注册。
+- 超时、限流或服务错误：记录查询不可用，不作为 DOI 无效的证据。
+
+Crossref 的 `/works/{doi}` 查询本机构记录，`/works/{doi}/agency` 可帮助识别注册机构。
+依据见 [Crossref REST API 文档](https://www.crossref.org/documentation/retrieve-metadata/rest-api/)。
 
 对每条文献，并行查询以下来源（可用哪些取决于环境配置）：
 
 | 来源 | 适用文献 | 典型覆盖率 |
 |------|---------|-----------|
-| **Crossref** | 有 DOI 的外文期刊 | ~70%（IEEE 老文献、中文期刊常有缺失）|
+| **Crossref** | 在 Crossref 注册的 DOI | 未找到记录时需继续核验 |
+| **DOI resolver / 注册机构** | 包括 DataCite 注册的 arXiv DOI 等 | 用于 Crossref 未收录的 DOI |
 | **IEEE Xplore** | IEEE 期刊/会议 | IEEE DOI 404 时的备选 |
 | **WebSearch (Bing/Google)** | 无 DOI 或来源缺失的文献 | 兜底方案 |
 | **CNKI/万方** (kimi-datasource / webbridge) | 中文期刊、学位论文 | 中文文献必查 |
 | **Zotero 本地库** (zotero-mcp) | 已入库文献 | 快速比对已有数据 |
 
-**查询策略：** 优先用 DOI 查 Crossref，失败后降级用标题+作者搜 Web。
+**查询策略：** 优先用 DOI 查 Crossref；无记录时查 DOI resolver、对应注册机构或出版方页面，必要时用标题+作者搜 Web。确认另一个 DOI 属于同一篇论文前，不自动替换原 DOI。最终仍无法核实的条目标为 `Unverifiable`，保留已查来源和原因。
 
 **批量策略：** 超过 20 条时按 10–15 条一组拆给并行子代理，每组独立查询后汇总——35 条规模实测 3 个并行子代理即可在一次往返内完成，串行会慢一个数量级。
 
@@ -179,8 +187,8 @@ description: >-
 
 | 局限 | 应对 |
 |------|------|
-| **中文 DOI 不在 Crossref 中** | 降级到 CNKI/万方（通过 webbridge 或 WebSearch）|
-| **IEEE 老文献 DOI 返回 404** | 用 IEEE Xplore 直接搜（其 DOI 不在 Crossref 注册）|
+| **DOI 不在 Crossref 中** | 查 DOI resolver、注册机构或出版方页面；arXiv 可转查 DataCite，中文文献可结合 CNKI/万方 |
+| **IEEE 文献在 Crossref 返回 404** | 查 DOI resolver 和 IEEE Xplore，不根据年代或一次 404 推断注册机构或 DOI 有效性 |
 | **学位论文无 DOI** | 用 CNKI / 万方 / ProQuest 验证标题+作者+年份 |
 | **产品手册/专利** | 不验证元数据，只确认来源可访问 |
 | **谷歌学术搜不到部分文献** | 切换搜索引擎（Bing、百度学术、Semantic Scholar）|

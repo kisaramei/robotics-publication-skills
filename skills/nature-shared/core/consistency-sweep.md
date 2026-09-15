@@ -6,8 +6,9 @@ manuscript has already accumulated, which is what happens to every manuscript th
 more than once.
 
 Use it when polishing or proofreading a full manuscript, when self-reviewing before submission, when
-auditing a revision, or whenever multiple rounds of editing have touched the same document. Do not
-use it as a substitute for building a ledger on a fresh draft.
+auditing a revision, or when repeated edits have introduced a concrete consistency concern. Match
+the sweep to the requested scope; a passage-level edit does not require a whole-manuscript audit.
+Reuse an existing terminology ledger rather than rebuilding it on each pass.
 
 Two facts drive the method:
 
@@ -64,15 +65,16 @@ cross-reference, or redundancy checks below.
 
 Two axes are technical errors rather than style, and reviewers treat them as competence signals:
 
-- **Interval terminology.** A confidence interval covers a parameter; a prediction interval covers a
-  future observation. A paper reporting per-observation uncertainty must say *prediction interval*.
-  `confidence level` for the alpha level is a different, correct term — do not "fix" it.
+- **Interval terminology.** A confidence interval concerns a parameter; a prediction interval
+  concerns a future observation. Identify what the interval estimates before relabelling it.
+  The confidence level is conventionally `1 - alpha`; `alpha` is the significance level,
+  not the confidence level. For example, a 95% confidence level corresponds to `alpha = 0.05`.
 - **Same quantity, two units.** Converting for local readability forces the reader to verify that the
   two numbers match, and invites the suspicion that they do not.
 
-Run several passes. Each pass surfaces axes the previous one did not, because fixing one axis makes
-the next one visible. In practice a heavily revised manuscript yields findings on at least three
-successive passes before converging.
+Check the relevant axes, then recheck those affected by a batch of corrections. Repeat only when
+new edits, failed checks, or unresolved findings justify it. Finish when the requested checks pass
+and remaining uncertainties are reported; do not keep searching for new stylistic issues.
 
 ## 3. Numeric self-consistency
 
@@ -93,7 +95,12 @@ Check every superlative against the table behind it.
 - "Consistently highest across all three methods" fails if one column shows another item higher.
   State what the data supports and name the exception explicitly. A reviewer who finds the exception
   unaided assumes nothing else was checked either.
-- Overlapping error bars do not support "outperformed". Use "statistically indistinguishable".
+- Error-bar overlap alone establishes neither statistical significance nor equivalence. Identify
+  whether the bars show SD, SEM, or a confidence interval, what the independent experimental units
+  are, and whether the comparison is paired. Base inferential wording on an appropriate test or
+  confidence interval for the difference. Without that evidence, describe the observed difference
+  and mark its inferential status as unassessed; do not automatically write "statistically
+  indistinguishable". See [Error bars, Nature Methods](https://www.nature.com/articles/nmeth.2659).
 - Check for **under**claiming too. A conclusion saying "matched the best conventional model" when the
   results section reports first place on every metric throws away a real result.
 - Internal summaries must agree with each other. If the results section concludes that features A and
@@ -112,11 +119,14 @@ saying what the old text already said.
 ## 6. Order of operations
 
 1. Numeric self-consistency and claims-versus-data (sections 3 and 4). Fix content before wording.
-2. Terminology sweep (sections 1 and 2), repeated until a pass finds nothing new.
+2. Terminology sweep (sections 1 and 2), followed by a recheck of affected terms after corrections.
 3. Redundancy pass (section 5).
-4. Recompile and re-verify anything that depends on pagination.
+4. When the requested deliverable involves compiled documents, recompile after the batch of edits
+   and re-verify affected page references.
 
 Content fixes change wording, and wording fixes change pagination, so this order avoids redoing work.
-Any downstream artifact that quotes the manuscript — a response letter, a cover letter, a slide deck
-— must be re-synchronized after every change; see `nature-response/references/package-consistency-audit.md`
-when a revision package is involved.
+Synchronize affected quotations in downstream artifacts included in the requested deliverable
+after each batch of relevant edits. For a final revision package, perform the complete delivery
+check in `../../robotics-response/references/package-consistency-audit.md`. Flag affected artifacts
+outside the requested scope rather than silently editing them. Once the final checks pass, reuse
+that evidence unless a subsequent change or failure invalidates it.

@@ -92,7 +92,7 @@ sections, conference-extension disclosure or production checks affect the
 revision, load
 `../nature-shared/journal-formats/nature-machine-intelligence.md`.
 
-When the job is a whole manuscript rather than a passage, or the text has already been through more than one round of editing, also load `../nature-shared/core/consistency-sweep.md`. Polishing passage by passage cannot see accumulated drift: one experimental factor under several names, the same quantity in two units, a metric at two precisions, or a superlative the paper's own table contradicts. Sweep for those before working on sentences, and repeat the sweep until a pass finds nothing new.
+When the job is a whole manuscript, or repeated editing has created a concrete consistency concern, also load `../nature-shared/core/consistency-sweep.md`. Check terminology, units, numeric precision, and internal claims within the supplied and requested scope. For a full manuscript, inspect cross-section drift before polishing and verify affected items after each batch of related edits. For a passage, check the passage and available relevant context without requiring the rest of the manuscript. Recheck only when new edits, failed checks, or unresolved findings justify it; finish when the scoped checks pass or report findings that require missing evidence.
 
 **Layout/typesetting (排版) requests are different.** If the user asks to fix
 *placement* rather than wording — loose/sparse pages, stranded headings, figures

@@ -32,7 +32,8 @@ axes:
   section:
     detect: |
       Identify which section(s) the user wants polished. The user may name
-      one or several. If unclear, ask before loading. Skip this axis only
+      one or several. Ask only when unresolved section ambiguity materially
+      affects the polish. Skip this axis only
       when the user provides standalone prose with no section context.
     values:
       abstract:       static/fragments/section/abstract.md
@@ -91,7 +92,7 @@ references:
       path: references/phrasebank-playbook.md
     - condition: needs academic style, register, article use, or mechanics checks
       path: references/style-guardrails.md
-    - condition: polishing or proofreading a full manuscript rather than a passage, or the text has been through more than one round of editing — sweep for accumulated terminology/unit/number drift, headline counts that do not reconcile, claims contradicted by the paper's own tables, tense parallelism, and prose that restates displays
+    - condition: polishing or proofreading a full manuscript, or repeated editing has created a concrete consistency concern — check terminology/unit/number drift, unreconciled counts, internally contradicted claims, tense parallelism, and repeated display content within the supplied and requested scope
       path: ../nature-shared/core/consistency-sweep.md
     - condition: needs deeper writing-strategy principles
       path: references/writing-strategy.md

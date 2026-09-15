@@ -68,13 +68,13 @@ Calibration rules:
   a Major Concern unless the supplied package was expected to contain it and the omission itself is
   verifiable.
 - Minor Comments must be actionable and manuscript-specific; omit taste-only copyediting.
-- Never manufacture concerns to meet a numeric quota. Use `None identified from the supplied
-  material` when a severity tier has no grounded item.
+- Never manufacture concerns to meet a numeric quota. In full reports, label an empty severity
+  tier `None identified from the supplied material`; compact reviews omit empty tiers.
 
 ## Reviewer-local use
 
-- Keep the visible labels as `Reviewer 1`, `Reviewer 2`, and `Reviewer 3` with preassigned emphasis briefs.
-- Apply the taxonomy independently inside each isolated reviewer context. Do not allocate concerns or axes based on another report.
+- Number only the selected reviewers as `Reviewer 1` through `Reviewer N`, with preassigned emphasis briefs, following [Review scope](../SKILL.md#review-scope).
+- Apply the taxonomy independently inside each reviewer context, with isolation for multiple reviewers. Do not allocate concerns or axes based on another report.
 - Do not expose specialist personas such as `Statistics Reviewer` or infer reviewer-selection history.
 - Use reviewer-local issue keys while drafting. Map equivalent concerns to synthesis keys only after all reports are frozen.
 - Classify Major and Minor concerns according to evidence and emphasis, not fixed counts. A reviewer

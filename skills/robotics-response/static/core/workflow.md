@@ -18,22 +18,24 @@ files, cover letters, redlines, manuscript edits, and LaTeX revision packages.
 
 ### Journal-only decision gate
 
-For journal revision-response work, determine the editorial decision before drafting the response
-strategy or response prose:
+For journal revision-response work, resolve the editorial decision when it affects the requested
+strategy or deliverable:
 
-1. Use an explicit label in the editor decision letter or revision invitation when supplied.
+1. Use an explicit label in the editor decision letter, revision invitation, or author statement
+   already supplied in context. Do not ask again for a known decision.
 2. Normalize informal author wording such as `major review` and `minor review` to `Major Revision`
    and `Minor Revision` when the meaning is unambiguous.
-3. If the decision remains unclear, ask one concise question in the user's language and pause:
-   `这是 Major Revision（大修）还是 Minor Revision（小修）？如果决定信没有明确写，请把决定信发给我，我帮你判断。`
-   English default: `Is this a Major Revision or a Minor Revision? If the decision letter does
-   not state it clearly, please send it and I can help classify the decision.`
-   In other words, pause and ask the user, and do not draft a generic response that silently treats
-   Major Revision and Minor Revision as interchangeable.
-4. Do not infer the decision type from comment count, reviewer tone, requested workload, or the
+3. If the decision remains unknown, assess whether knowing it changes this task. Local audits,
+   wording revisions, and comment triage can proceed with `decision type: unknown` when they do
+   not depend on the label. Preserve missing-evidence placeholders and verified work status.
+4. If the requested strategy or deliverable does depend on it, ask one concise question explaining
+   which part needs the decision letter or explicit decision type. Defer that part and continue
+   useful independent work. Keep `revise-and-resubmit` and `transfer after review` distinct;
+   follow their explicit editor instructions instead of forcing a Major/Minor classification.
+5. Do not infer the decision type from comment count, reviewer tone, requested workload, or the
    apparent severity of individual comments.
 
-After the gate is resolved, use the corresponding default strategy:
+When a supplied decision calls for a Major/Minor package strategy, use the corresponding default:
 
 | Decision type | Default revision strategy |
 |---|---|
@@ -52,9 +54,11 @@ Minor Revision. Journal instructions and explicit editor directions override the
 2. Parse the supplied decision email, conference reviews, or platform instructions. Extract the
    venue, track, year, manuscript metadata, decision or response stage, official constraints,
    reviewer/chair IDs, deadline and time zone, visibility, and required deliverables.
-3. For `journal-revision`, pass the Major/Minor decision gate and select the corresponding
-   package strategy. For `conference-rebuttal`, skip that gate, verify the current rules, and
-   follow `references/conference-rebuttal.md`.
+3. For `journal-revision`, retain any supplied decision and apply the decision gate only to work
+   that depends on it. If the decision is missing, independent work can proceed with
+   `decision type: unknown`. For
+   `conference-rebuttal`, skip that gate, verify the current rules, and follow
+   `references/conference-rebuttal.md`.
 4. Preserve item-level severity and distinguish verified completed work from planned work.
 5. Extract editor instructions first and assign IDs such as `E.1`, then split reviewer comments with IDs such as `R1.1`, `R1.2`, and `R2.1`.
 6. Classify each item by category, severity, action label, work status, required input, expected output, finalization-blocking state, package readiness, and risk.

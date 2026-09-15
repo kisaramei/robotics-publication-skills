@@ -7,7 +7,7 @@ description: >
 
 # Design note: robotics-response first selects journal-revision or
 # conference-rebuttal. Both share evidence/status discipline, but only the journal
-# route uses the Major/Minor gate and revision-package artifacts. The conference
+# route uses the conditional Major/Minor gate and revision-package artifacts. The conference
 # route loads a focused reference and verifies current venue/year rules at runtime.
 # The shared core remains always loaded; details remain on demand.
 
@@ -19,7 +19,7 @@ references:
   on_demand:
     - condition: a reviewer or editor comment leads to additions, deletions, compression, relocation, or statistical-detail changes in the manuscript main text — classify the result, prevent revision accretion, separate main text/caption/SI functions, and run deletion, paragraph-necessity, and claim-repetition checks
       path: ../nature-shared/core/main-text-discipline.md
-    - condition: before drafting — select journal-revision or conference-rebuttal, identify task mode, apply the Major/Minor decision gate only to journals, parse supplied instructions, minimum inputs, identifiers, readiness state, and clarifying-question need
+    - condition: before drafting — select journal-revision or conference-rebuttal, identify task mode, apply the journal Major/Minor gate only when the requested strategy or deliverable depends on it, parse existing context, supplied instructions, minimum inputs, identifiers, readiness state, and clarifying-question need
       path: references/intake-and-routing.md
     - condition: every conference-rebuttal route — verify current venue/year author-response rules, capture the budget and permitted-change boundary, prioritize issues, and produce one compact response keyed to reviewer and AC identifiers
       path: references/conference-rebuttal.md
@@ -46,6 +46,6 @@ references:
 
 quality_tools:
   package_consistency_script: scripts/check_package_consistency.py
-  use_when: after the first complete LaTeX revision package, after every manuscript edit, and immediately before delivery
+  use_when: after the first complete LaTeX revision package, after a batch of related edits affecting package consistency, and before delivery; reuse passing checks while files are unchanged
   purpose: expand static LaTeX inputs, check response-letter quotes and declared rendered substitutions against the manuscript, pair reviewer comments with author responses, and compare clean and marked manuscript text after additions and deletions are normalized
   script_resolution: resolve relative to the loaded SKILL.md directory, never the user working directory

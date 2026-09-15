@@ -19,7 +19,7 @@ Open-access, broader than a subfield journal, more specialist-tolerant than *Nat
 
 ## Pre-drafting word budget (Articles)
 
-The ~5,000-word cap **includes Methods**. Before drafting any section, propose a budget and confirm with the user:
+The ~5,000-word cap **includes Methods**. When full-manuscript planning or length allocation is relevant, use the following as a provisional budget, subject to the current verified journal rules and any budget already supplied by the user. Draft directly when the allocation is clear; apply `static/core/workflow.md` step 3b only if a consequential allocation choice remains unresolved:
 
 | Section | Suggested budget |
 |---|---|

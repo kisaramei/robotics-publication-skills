@@ -9,7 +9,7 @@
 - 对手稿、摘要、图表或结果故事线做投稿前压力测试。
 - 按目标 venue 的当届官方标准评估；无法核验时明确使用通用科研标准，不凭记忆编造规则。
 - 重点检查数据泄漏与污染、baseline 公平性、seeds 与 episode 独立性、消融、OOD 与 embodiment transfer、sim-to-real、延迟与控制频率、失败安全和可复现性。
-- 在相互不可见的独立上下文中生成三份 reviewer reports，全部定稿后再单独生成 cross-review synthesis。
+- 完整模拟审稿默认在相互不可见的独立上下文中生成三份 reviewer reports，全部定稿后再单独生成 cross-review synthesis；按本次请求调整人数与结构。
 - 标记无支撑声称、技术缺陷、证据链断点和非专业读者理解障碍。
 - 将意见明确分成 `Major Concerns` 和 `Minor Comments`；对会阻断核心论证的 Major 问题标记 `Blocking Yes`。
 - 尖锐意见保持直接、专业且有证据，小问题保持具体、可执行，不为凑数量虚构问题。
@@ -24,6 +24,7 @@
 - “按本届 CoRL 的官方 reviewer guidelines 审这篇机器人论文。”
 - “投稿前帮我找最可能被审稿人攻击的技术问题。”
 - “给我三份 reviewer reports 和一个综合判断，不要写 rebuttal。”
+- “只要一位 reviewer 审这段实验，不需要综合报告。”
 
 ## 你需要提供
 
@@ -33,8 +34,9 @@
 
 ## 产出
 
-- 三份 peer-review style reports。
-- Cross-review synthesis：共识问题、分歧重点和编辑层风险。
+- 按请求人数生成 peer-review style reports；完整模拟审稿未指定人数时默认三份。
+- 多人审稿默认附 Cross-review synthesis：共识问题、分歧重点和编辑层风险；用户可以只要独立报告。
+- 单人审稿不补其他 reviewer，也不强制生成跨审稿人综合；如需摘要，只总结该报告，不声称共识。
 - 带稳定编号、claim pointer、evidence pointer 和解决判据的可追溯审稿意见。
 - 分级的 Major/Minor 意见、Blocking 风险和去重后的 minor revision checklist。
 - 必须补强的实验、分析、叙事或图表证据清单。

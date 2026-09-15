@@ -4,8 +4,8 @@ When the source notes are already in English, default to standard scientific-Eng
 
 ## Sentence rules
 
-- Aim for `10-30` word sentences in drafts.
-- One main proposition per sentence; split if the sentence carries two.
+- Treat `10-30` words as a rough guide to sentence length, not a required range. Use natural short sentences and longer sentences when needed for precise relationships or qualifications.
+- Prefer one main proposition per sentence; related evidence, comparison, or qualification may accompany it. Split overloaded sentences when that improves clarity.
 - Prefer subject-verb-object order. Avoid stacked prepositional chains.
 - Avoid em dashes as prose punctuation in drafts unless the user explicitly asks. Use commas, parentheses, or short sentences.
 
@@ -14,7 +14,7 @@ When the source notes are already in English, default to standard scientific-Eng
 - One paragraph, one message.
 - The first sentence is the topic or claim.
 - Each subsequent sentence has an explicit relation to the previous one: cause, comparison, restriction, example.
-- Do not stack two ideas into one paragraph. If a new idea appears, start a new paragraph.
+- Evidence, comparison, explanation, and qualification may support the same central message. Start a new paragraph when that message changes, not merely when its supporting function changes.
 
 ## Diction
 

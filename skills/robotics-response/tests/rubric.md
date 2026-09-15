@@ -6,14 +6,18 @@ Use this rubric to manually evaluate `robotics-response` outputs against the Mar
 
 Pass when:
 
-- The decision type is extracted from an explicit editor letter or user statement.
-- When it remains unclear, the skill asks whether this is Major Revision or Minor Revision before drafting strategy or response prose.
+- The decision type is extracted from an explicit editor letter or user statement already in context.
+- When it remains unknown and changes the requested strategy or deliverable, the skill asks a
+  concise question and defers only the dependent work.
+- Local audits, wording revisions, and comment triage proceed with an unknown decision when
+  their outcome does not depend on the label.
 - Major Revision receives an evidence-first, potentially structural work plan.
 - Minor Revision receives a bounded correction plan without downgrading any genuinely major or blocking concern.
 
 Fail when:
 
 - The skill guesses the decision type from reviewer tone, comment count, or apparent workload.
+- It blocks independent work or asks again for a decision already supplied.
 - It drafts the same undifferentiated strategy for Major and Minor Revision.
 - It treats the Minor Revision label as permission to minimize an evidence, statistics, ethics, or integrity concern.
 
@@ -107,7 +111,7 @@ Pass when:
 
 Fail when:
 
-- The output only produces prose and no action checklist.
+- A requested revision package or action plan contains only prose and no action checklist.
 - The author cannot identify what evidence is still needed.
 - The output overwrites the clean manuscript without a marked backup/copy.
 - The response letter pastes revised manuscript text as plain non-italic body text.
@@ -125,5 +129,5 @@ Pass when:
 
 Fail when:
 
-- The output reads like generic language polishing.
+- A requested full response package contains only generic language polishing.
 - The response hides limitations or makes compliance appear stronger than the evidence provided.

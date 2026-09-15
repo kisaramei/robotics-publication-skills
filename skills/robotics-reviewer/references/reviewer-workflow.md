@@ -12,14 +12,17 @@
 
 ## Default execution order
 
+Apply [Review scope](../SKILL.md#review-scope) throughout. Use the selected reviewer count and
+output structure; a one-reviewer request needs one report and no cross-review synthesis.
+
 1. Identify the input package.
    - Determine whether the user supplied a full manuscript, abstract-only draft, selected sections, figures, notes, or a pre-submission concept summary.
 2. Build an immutable review packet.
    - Include the supplied manuscript/source, verified source anchors, assessment boundary, and current verified venue criteria or labeled generic rubric.
    - Do not include suspected concerns, a shared interpretation, another report, or a draft synthesis.
-3. Define all reviewer emphasis briefs before review begins.
+3. Record the selected reviewer count and synthesis choice, then define that many emphasis briefs before review begins.
    - Keep the source packet and report skeleton identical; vary only the declared emphasis.
-4. Generate each reviewer report in an isolated context.
+4. Generate each selected reviewer report, using isolated contexts when there is more than one reviewer.
    - Give the reviewer only the immutable packet, common rules, report skeleton, and its own emphasis brief.
    - Within that context, independently extract the central claim, key evidence, stated significance, implied audience, visible limitations, and missing material.
    - Independently apply the verified venue criteria and applicable generic axes from `review-axes.md`.
@@ -31,8 +34,8 @@
 6. Freeze all reviewer reports.
    - Do not let reviewers read, cite, agree with, answer, or anticipate one another.
    - Do not redistribute, add, remove, or rephrase concerns after comparison merely to change overlap.
-   - Render separate `Major Concerns` and `Minor Comments` sections. If a tier has no grounded item, write `None identified from the supplied material` rather than filling a quota.
-7. Generate a post-review synthesis in a separate context.
+   - Follow the selected output mode in `report-structure.md`. Full reports use separate Major/Minor sections and label empty tiers; compact reviews use inline severity and omit empty tiers. Never fill a concern quota.
+7. If selected for a multi-reviewer task, generate a post-review synthesis in a separate context.
    - Summarize consensus blocking concerns, other major concerns, the minor-revision checklist,
      points of emphasis divergence, and the most decision-relevant technical and venue-fit risks.
    - Reconcile reviewer-local issue keys only now. Treat an issue as consensus only when at least two frozen reports independently raise the same underlying concern.
@@ -91,6 +94,8 @@ reviewer_id: Reviewer 1
 
 ## Cross-review generation rule
 
+- Apply this section only when the selected scope includes multiple reviewers and synthesis.
+  For one reviewer, omit cross-review synthesis; provide a single-report summary only if requested.
 - Run synthesis only after all individual reports are final and locked.
 - Treat the synthesis as editor/author-facing; never send it back into any reviewer context.
 - The cross-review synthesis should consolidate, not average away, reviewer differences.
@@ -106,7 +111,7 @@ reviewer_id: Reviewer 1
 
 ## Failure-safe behaviour
 
-- If isolated contexts are unavailable, produce one reviewer report per invocation or disclose that mutual blindness cannot be guaranteed. Do not silently simulate independence inside a shared drafting context.
+- For a multi-reviewer request, if isolated contexts are unavailable, produce one reviewer report per invocation or disclose that mutual blindness cannot be guaranteed. Do not silently simulate independence inside a shared drafting context. A single-reviewer request does not require an isolation fallback.
 - When evidence is absent, say the case is not yet established from the supplied material.
 - When significance is unclear, distinguish `potentially interesting` from `demonstrated broad importance`.
 - When clarity is weak, describe the barrier to evaluation instead of rewriting the manuscript unless asked.

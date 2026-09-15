@@ -6,7 +6,7 @@ Use an adversarial, reviewer-style checklist to detect reject risks early and re
 
 ## Core Principle
 
-Pursue perfectionism in paper quality: assume reviewers will probe every weak point and proactively fix them.
+Prioritize evidence-backed rejection risks within the requested review scope. Separate writing fixes from issues that require author decisions or new experiments.
 
 ## Critical Rule (Do Not Violate)
 
@@ -82,5 +82,5 @@ Use each question to trigger concrete edits before submission.
 1. Read the paper as a skeptical reviewer.
 2. Answer every question above with explicit evidence from the paper.
 3. Mark each item as `pass`, `needs revision`, or `needs new experiment`.
-4. Revise claims, writing, experiments, or method scope accordingly.
-5. Repeat until no major rejection risk remains.
+4. Make requested writing revisions; identify author decisions and new experiments needed to resolve other findings.
+5. Recheck affected items after revisions. Finish when the scoped checks pass or the remaining evidence gaps and rejection risks are clearly reported; revisit only after new material, changes, or unresolved findings justify another pass.

@@ -2,11 +2,14 @@
 
 ## Reviewer mutual blindness
 
+Apply mutual-blindness rules when [Review scope](../SKILL.md#review-scope) selects multiple
+reviewers. A single report may use the current context and needs no cross-review comparison.
+
 - Treat every reviewer as unable to see any other reviewer's report, notes, concern ledger, or recommendation.
 - Give all reviewers the same immutable manuscript/source packet and verified venue policy or labeled generic rubric, plus only their own preassigned emphasis brief.
 - Use a separate context, subagent, process, or invocation for each reviewer. Do not claim mutual blindness when the execution environment cannot provide isolation.
 - Finalize and lock individual reports before any comparison. Natural overlap and disagreement must remain intact.
-- Create cross-review synthesis only in a separate post-review pass for the editor/author-facing package. Never feed that synthesis back to reviewers.
+- When selected, create cross-review synthesis only in a separate post-review pass for the editor/author-facing package. Never feed that synthesis back to reviewers.
 - Do not use phrases such as `as Reviewer 1 noted`, `I agree with the other reviewer`, or `the reviewers collectively believe` inside an individual report.
 
 ## Allowed reviewer differences

@@ -3,6 +3,7 @@
 ## Contents
 
 - [Default output contract](#default-output-contract)
+- [Compact review](#compact-review)
 - [Review setup](#review-setup)
 - [Per-reviewer structure](#per-reviewer-structure)
 - [Concern traceability and severity display](#concern-traceability-and-severity-display)
@@ -13,17 +14,33 @@
 
 ## Default output contract
 
-- The default output should contain these sections in order:
+- Follow the reviewer count and output structure selected under
+  [Review scope](../SKILL.md#review-scope). Brief requests and targeted local checks use
+  **Compact review** below unless the user asks for the full report. For full reports, return:
   1. `Review setup`
-  2. `Reviewer 1`
-  3. `Reviewer 2`
-  4. `Reviewer 3`
-  5. `Cross-review synthesis (post-review; not shown to reviewers)`
-  6. `Risk / unsupported claims`
+  2. `Reviewer 1` through `Reviewer N`, where N is the selected count
+  3. `Cross-review synthesis (post-review; not shown to reviewers)` only when selected for multiple reviewers
+  4. `Risk / unsupported claims`
+- For one reviewer, return one report without adding reviewers or cross-review sections.
+  If the user requests a summary, it describes that report and makes no consensus claims.
+
+## Compact review
+
+- Open with one sentence stating the assessment boundary and relevant policy basis.
+- Give each substantive issue one compact bullet. Keep its ID, Major/Minor severity, and
+  Major Blocking Yes/No inline, then combine the challenged claim, verified evidence location,
+  impact, and resolution in concise prose. The grounding fields below describe required
+  information, not separate display rows in this mode.
+- Omit empty Major/Minor headings and repeated setup, overall assessment, strengths, axes,
+  blocking summaries, and risk sections. Include material limits in the opening or the affected
+  issue. If no supported concern exists, say so briefly.
+- Use the selected reviewer count and synthesis choice. A compact presentation still preserves
+  independent multi-reviewer judgments, traceability, and severity calibration.
 
 ## Review setup
 
-- Include:
+- In full reports, include:
+  - `Reviewer count and synthesis choice`
   - `Input scope`
   - `Target venue and track`
   - `Venue-policy status`, including edition or year, official sources, and access date when verified
@@ -34,7 +51,7 @@
 
 ## Per-reviewer structure
 
-- Each reviewer report should use the same skeleton:
+- Each full reviewer report should use the same skeleton:
   - `Overall assessment`
   - `Major strengths`
   - `Major Concerns`
@@ -53,7 +70,7 @@
 ## Concern traceability and severity display
 
 - Give each substantive concern a stable local ID: `R1-M1`, `R1-M2`, `R1-m1`, and so on.
-- Use this shape for each Major Concern:
+- In full reports, use this shape for each Major Concern:
 
 ```text
 R1-M1 [experimental-design]
@@ -66,7 +83,7 @@ R1-M1 [experimental-design]
 **Resolution test** [evidence, analysis, clarification, or claim adjustment that would resolve it]
 ```
 
-- Use this shorter shape for each Minor Comment:
+- In full reports, use this shorter shape for each Minor Comment:
 
 ```text
 R1-m1 [writing-clarity]
@@ -84,12 +101,14 @@ R1-m1 [writing-clarity]
   short roll-up that cross-references `Blocking Yes` IDs; do not duplicate the full concern prose.
 - Use uppercase `M` IDs for Major Concerns (`R1-M1`) and lowercase `m` IDs for Minor Comments
   (`R1-m1`). Do not change an ID's case after assignment.
-- Every reviewer must show both section headings, but either section may say
-  `None identified from the supplied material`. Do not force a minimum count.
+- Full reports show both section headings; an empty section may say
+  `None identified from the supplied material`. Compact reviews show severity inline and omit
+  empty tiers. Do not force a minimum count.
 - Do not emit the complete internal 12-axis coverage matrix.
 
 ## Cross-review synthesis structure
 
+- Apply this structure only when the selected scope includes multiple reviewers and synthesis.
 - Generate this section only after all individual reports have been frozen. It is part of the editor/author-facing package and is never shown to the simulated reviewers.
 - Include:
   - `Consensus strengths`
@@ -106,7 +125,7 @@ R1-m1 [writing-clarity]
 
 ## Risk / unsupported claims section
 
-- Include explicit flags for:
+- Include material flags in this section for full reports, or inline in compact reviews:
   - unsupported novelty claims
   - significance claims not established by the supplied evidence
   - missing controls, validations, or comparisons

@@ -10,9 +10,10 @@ Recommended status: `Beta`.
 Rationale:
 
 - The core rules are defined in `SKILL.md` and modular references.
-- The skill has synthetic fixtures covering mandatory decision-type intake, minor revision, major
+- The skill has synthetic fixtures covering task-dependent decision-type intake, minor revision, major
   revision with missing evidence, impossible experiment, defensive draft audit, conflicting
-  reviewers, mutually blind reviewer-response separation, and per-task status tracking.
+  reviewers, mutually blind reviewer-response separation, per-task status tracking, and bounded
+  package consistency checks.
 - Each fixture includes expected behavior, forbidden behavior, and pass/fail criteria.
 - The examples show expected output shape without using real confidential reviewer comments.
 - The skill has not yet been validated on real anonymized revision packages, so `Stable` would be premature.
@@ -21,14 +22,14 @@ Rationale:
 
 | Fixture | Coverage | Key failure prevented |
 |---|---|---|
-| `unclear-decision-type.md` | mandatory Major/Minor intake gate | guessing the revision type or drafting with the wrong package strategy |
+| `unclear-decision-type.md` | task-dependent decision questions and local work with an unknown decision | guessing the revision type, selecting the wrong package strategy, or blocking independent work |
 | `minor-revision.md` | stable IDs, minor comments, missing citation metadata | fabricated citation or line numbers |
 | `major-revision-missing-evidence.md` | validation request, statistical details, missing evidence | invented results or p-values |
 | `impossible-experiment.md` | out-of-scope longitudinal evidence | time/funding excuse or fabricated survival data |
 | `defensive-draft-audit.md` | hostile draft language, missed existing text, vague compliance | accusatory wording or an impolite "we already stated this" reply |
 | `conflicting-reviewers.md` | editor priority, incompatible reviewer requests, and reviewer isolation | contradictory promises or cross-reviewer disclosure |
 | `reviewer-visibility.md` | separate outward-facing responses for mutually blind reviewers | leaked comments, IDs, recommendations, or cross-review references |
-| `task-status-tracking.md` | action/status separation, verification evidence, expected output, blocking state | false completion and premature submission readiness |
+| `task-status-tracking.md` | action/status separation, verification evidence, expected output, blocking state, and checks after related edit batches | false completion, premature submission readiness, and repeated full audits of unchanged files |
 
 ## Manual evaluation checklist
 

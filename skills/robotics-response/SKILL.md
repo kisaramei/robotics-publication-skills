@@ -55,10 +55,13 @@ Then identify the runtime variation:
   and submission constraints.
 - **user language** — if the user writes Chinese, also produce the 中文核对 block.
 
-The Major/Minor decision gate applies only to `journal-revision`. First extract the decision
-from the editor letter. If it remains unclear, ask whether this is a `Major Revision` or
-`Minor Revision` before drafting journal response prose. Never infer it from comment count or
-tone. **Skip this gate entirely for `conference-rebuttal`.** Instead, load
+The Major/Minor (`Major Revision` / `Minor Revision`) decision gate applies only when the requested `journal-revision` strategy or
+deliverable depends on the decision type. First use the editor letter or an explicit author
+statement already in context. If the decision remains unknown and changes the requested work,
+ask one concise question and defer only the dependent part. Local `audit`, `revise`, and
+`triage-only` work can proceed with `decision type: unknown` when the label does not affect it.
+Never infer the decision from comment count or tone, or fill missing evidence with invented
+results. **Skip this gate entirely for `conference-rebuttal`.** Instead, load
 [references/conference-rebuttal.md](references/conference-rebuttal.md) and verify the current
 venue/year rules from an official source before claiming that a response satisfies them. If
 verification is unavailable, ask the user for the official instructions or URL. Triage may
@@ -70,8 +73,8 @@ Use `references/intake-and-routing.md` to fix the task mode, minimum inputs, and
 
 Follow `static/core/workflow.md` and the selected route:
 
-- For `journal-revision`, preserve the full revision workflow: parse the decision letter,
-  pass the journal-only decision gate, classify editor and reviewer items, build an internal
+- For `journal-revision`, apply the workflow to the requested task: parse any supplied decision
+  letter, resolve the decision type when the strategy depends on it, classify editor and reviewer items, build an internal
   tracker, prepare privacy-filtered reviewer-specific responses, map real changes to manuscript
   locations, and add cover-letter, marked-manuscript, or LaTeX deliverables when requested or
   required.
@@ -110,7 +113,7 @@ tracker fields, `references/tone-and-stance.md` for disagreement wording,
 `references/package-consistency-audit.md` for a journal package edited alongside the manuscript,
 and `references/qa-checklist.md` before finalizing.
 
-`qa-checklist.md` and `package-consistency-audit.md` are complementary and both apply to a final package: the first asks whether the response is complete, honest, and well-toned; the second asks whether the marked manuscript, the clean manuscript, and the letter actually agree with each other after editing. For a LaTeX package, run `scripts/check_package_consistency.py` after the first complete draft, after every manuscript edit, and immediately before delivery. Any manuscript edit invalidates the letter's verbatim quotes and page references, so re-run the audit rather than treating it as a one-time final check.
+`qa-checklist.md` and `package-consistency-audit.md` are complementary and both apply to a final package: the first asks whether the response is complete, honest, and well-toned; the second asks whether the marked manuscript, the clean manuscript, and the letter agree. For a LaTeX package, run `scripts/check_package_consistency.py` after the first complete draft, after a batch of related edits affecting package consistency, and before delivery. Synchronize affected quotes within the batch and recheck locations when pagination or numbering may change. Complete the full compilation and consistency checks before delivery; a passing check on unchanged files remains valid. Stop once checks pass and no new edit, failed check, or unresolved issue requires follow-up.
 
 ## Why this split
 

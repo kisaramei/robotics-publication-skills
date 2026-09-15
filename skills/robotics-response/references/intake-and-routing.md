@@ -31,24 +31,27 @@ it, ask whether this is a journal revision or conference author response.
 
 ## Journal-only decision-type gate
 
-For journal `draft`, `audit`, `revise`, `triage-only`, `cover-letter`, and `revision-package` modes, identify
-the editorial decision before drafting strategy or prose.
+For journal work, resolve the editorial decision only when it affects the requested strategy or
+deliverable. Use the supplied letter and explicit author statements already in context first.
 
 - If an editor letter explicitly says `Major Revision` or `Minor Revision`, use that value and do
   not ask a redundant question.
 - If the user explicitly says 大修、小修, major review, minor review, major revision, or minor
   revision, normalize it to the corresponding revision type.
-- If neither source resolves it, ask in the user's language and pause. Chinese default:
-  `这是 Major Revision（大修）还是 Minor Revision（小修）？如果决定信没有明确写，请把决定信发给我，我帮你判断。`
-  English default: `Is this a Major Revision or a Minor Revision? If the decision letter does
-  not state it clearly, please send it and I can help classify the decision.`
+- If neither source resolves it and the task does not depend on the label, use
+  `decision type: unknown` and proceed. This includes local `audit`, `revise`, and `triage-only`
+  tasks whose wording, evidence checks, or comment classification are independent of the decision.
+- If the requested strategy or deliverable does depend on the label, ask one concise question
+  explaining the dependency and request the decision type or letter. Defer only the dependent
+  work; continue independent analysis or drafting with explicit placeholders for missing facts.
 - Never guess from the number or apparent difficulty of reviewer comments. Reviewer requests and
   editor instructions can be serious even when the package is labelled Minor Revision.
 - `revise-and-resubmit` and `transfer after review` remain distinct decision types; do not force
   either into Major or Minor Revision. Follow the explicit editor instructions for those routes.
 
-Once resolved, apply the Major/Minor strategy in `static/core/workflow.md` and record the chosen
-decision type in the response strategy summary.
+When relevant to the task, apply the supplied decision's strategy from `static/core/workflow.md`.
+Record the decision type, or `unknown`, when returning a response strategy summary. An unknown
+decision does not justify inventing results, manuscript changes, or an editorial instruction.
 
 ## Task modes
 
@@ -155,20 +158,21 @@ If reviewer comments are absent, audit only the visible draft and flag that comp
 
 ## Clarifying question rules
 
-Except for the route and journal-only decision gates above, usually proceed with placeholders and risk
-flags. Ask concise questions only when:
+Check existing conversation context and supplied materials first. Usually proceed with placeholders
+and risk flags. Ask concise questions only for missing information that changes the requested work:
 
 - the task may be either a journal revision or conference rebuttal and the distinction changes
   the deliverable;
-- journal Major/Minor Revision status is not supplied and cannot be extracted from the decision letter;
+- the journal decision type remains unknown and the requested strategy or deliverable depends on it;
 - conference venue/year rules cannot be verified and the user asks for compliant final text;
 - the user explicitly asks for final submission-ready text and required facts are missing;
 - the draft would otherwise fabricate data, locations, approvals, statistics, citations, or figure panels;
 - reviewer boundaries are too ambiguous to assign stable IDs;
 - the case appears appeal-like or outside normal revision response.
 
-When asking, keep questions specific. Ask the decision-type question first when it is unresolved;
-after that, group only the remaining facts that genuinely block the requested output:
+When asking, group the facts needed for the dependent part of the requested output and explain why
+they matter. Continue work that does not depend on the answer. Do not ask about the decision type
+merely because it is unknown:
 
 ```text
 I need three facts before final wording: the validation result summary, the Methods/Results location,

@@ -60,13 +60,19 @@ DOI 格式正确但指向完全不同的文献——通常是因为编号写错�
 
 **检测方法：** 用 DOI 查 CrossRef，对比返回的标题是否一致。
 
-### 4.2 IEEE 老文献 DOI 404
+### 4.2 Crossref 返回 404
 
-2000 年以前的 IEEE 论文，DOI 在 Crossref 中常返回 404，但在 IEEE Xplore 中可查。**不应标记为错误**。
+Crossref 未找到记录不等于 DOI 无效。**不应仅凭 404 标记为错误**。
+查 `https://doi.org/<DOI>`、注册机构或出版方页面；IEEE 文献可结合 IEEE Xplore，
+arXiv 的部分 DOI 需查 DataCite。不要按文献年代推断其注册机构。
+
+例：`10.48550/arXiv.2303.02917` 的注册机构是 DataCite，Crossref API 无记录不能否定它。
+见 [Crossref 官方答复](https://community.crossref.org/t/known-working-doi-gives-resource-not-found-in-crossref-api/4111)。
 
 ### 4.3 中文 DOI 不在 Crossref
 
-中文期刊的 DOI 注册在 CNKI 系统而非 Crossref，API 查询必然返回空。需通过 CNKI/万方验证。
+中文文献也应按 DOI 的实际注册机构核验，不假定全部由同一机构注册。
+Crossref 无记录时，结合 DOI resolver、出版方和 CNKI/万方验证。
 
 ### 4.4 同一论文多个 DOI
 

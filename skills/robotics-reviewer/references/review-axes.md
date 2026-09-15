@@ -58,9 +58,12 @@ and do not fabricate venue-specific rules.
 - When official sources disagree, flag the conflict and prefer the current venue page or
   user-supplied authoritative packet. Do not silently resolve ambiguity.
 
-## Weighting guidance for three reports
+## Weighting guidance
 
-Assign these emphasis briefs before any reviewer receives the manuscript.
+Use the reviewer count selected under [Review scope](../SKILL.md#review-scope). Assign emphasis
+briefs before any reviewer receives the manuscript. These three briefs illustrate the default
+full review; adapt them to the selected count without creating extra reviewers. A single reviewer
+covers all applicable axes, with any emphasis requested by the user.
 
 - `Reviewer 1` usually foregrounds technical validity, evaluation integrity, statistical
   independence, and claim-evidence alignment.

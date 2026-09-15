@@ -22,7 +22,9 @@ whether the shipped files actually agree with each other. Run both.
 
 The core rule: **a revision package is three coupled artifacts** — the marked manuscript, the clean
 manuscript, and the response letter. An edit to any one of them can silently invalidate the others.
-Never edit the manuscript without re-running the checks below.
+Check consistency after each completed batch of related edits. Synchronize affected passages within
+that batch, then run the checks its changes require. Complete the full delivery checks on the final
+files; successful checks remain valid while those files are unchanged.
 
 ## 1. The coupling rule
 
@@ -34,7 +36,7 @@ Checks:
 
 - Every quoted passage in the letter appears **verbatim** in the expanded manuscript source,
   including statically named `\\input{...}` and `\\include{...}` files.
-- Editing a quoted manuscript sentence triggers a letter update in the same commit, not later.
+- Editing a quoted manuscript sentence triggers a letter update in the same batch.
 - Whitespace, hyphenation, and unit changes count — `4.5 cm` in the letter against `45 mm` in the
   manuscript is a mismatch.
 - Where the letter resolves a cross-reference for readability (`Table \ref{tab:x}` printed as
@@ -63,9 +65,10 @@ sources otherwise have the same text after revision markup is removed. Use repea
 machine-readable findings. A non-zero exit status means the package still contains a mechanical
 mismatch.
 
-Re-run it after **every** manuscript edit. It does not replace compiled-PDF page checks, color
-inspection, citation/reference diagnostics, or editorial judgement. Those remain manual gates in
-the sections below.
+Run it after the first complete draft, after a batch that changes quoted text or the coupled
+manuscript/letter copies, and before delivery. It does not replace compiled-PDF page checks, color
+inspection, citation/reference diagnostics, or editorial judgement. Apply those checks to the
+affected artifacts during editing and complete all delivery gates on the final files.
 
 ## 2. Red marking must have a baseline
 
@@ -87,7 +90,7 @@ misrepresentation even when the surrounding prose is honest.
 ## 3. Deletions ripple
 
 Removing content is more dangerous than adding it, because the letter keeps describing what is no
-longer there. After any deletion, grep the letter for prose that describes the deleted item.
+longer there. After a batch with deletions, search the letter for prose describing the deleted items.
 
 Failure patterns seen in practice:
 
@@ -117,8 +120,11 @@ Page numbers change whenever the manuscript reflows, including from edits far aw
 Adding a reference can add a page to the bibliography; shortening a paragraph can pull a section back
 a page.
 
-- Re-verify **every** page and section reference in the letter after **every** recompile, not once
-  at the end.
+- After a batch that may change pagination or section numbering, compile and re-verify the
+  affected location references. Reflow can propagate beyond the edited section; check all
+  potentially affected references when its extent is unclear.
+- Verify every page and section reference against the final compiled manuscript before delivery.
+  Recompiling unchanged sources does not by itself require another location audit.
 - Verify by extracting text per page from the compiled PDF and asserting that the quoted phrase
   actually falls on the claimed page, rather than trusting the number written earlier.
 - Section numbers are more stable than page numbers; prefer them when the journal allows.
@@ -130,8 +136,9 @@ pdftotext -f 8 -l 8 main.pdf - | grep -c "phrase the letter places on page 8"
 
 ## 6. Manuscript self-consistency and terminology drift
 
-A revision round is when manuscript-internal drift is both introduced and catchable. Run the full
-sweep from `nature-shared/core/consistency-sweep.md`: headline counts that do not reconcile with the
+A revision round is when manuscript-internal drift is both introduced and catchable. During editing,
+check changed passages and affected dependencies. At finalization, run the manuscript-wide sweep
+from `nature-shared/core/consistency-sweep.md`: headline counts that do not reconcile with the
 Methods, one metric reported at two precisions, superlatives contradicted by the paper's own tables,
 over- and under-claiming, terminology and unit variants accumulated across rounds, and tense
 parallelism inside the conclusion items.
@@ -178,9 +185,12 @@ Two wording patterns pass a normal read and still damage the response:
 
 ## 9. Audit order
 
-Run in this order; later steps depend on earlier ones being stable.
+For a complete package, run in this order after the related edits are stable. During editing, run
+only the checks affected by the completed batch; final delivery requires the full set.
 
-1. Manuscript self-consistency and terminology sweep (section 6, and the shared sweep it points to) — fix content before formatting, and repeat until a pass finds nothing new.
+1. Manuscript self-consistency and terminology sweep (section 6, and the shared sweep it points to).
+   Fix grounded findings within scope before formatting, then verify those corrections and their
+   affected dependencies.
 2. Sync every letter quote affected by step 1 (section 1).
 3. Recompile.
 4. Re-verify page and section references (section 5).
@@ -189,5 +199,7 @@ Run in this order; later steps depend on earlier ones being stable.
 7. Generate the clean copy and run the delivery gate (section 8).
 8. Package.
 
-Steps 3 to 5 repeat after every subsequent edit, however small. An edit that removes one sentence
-changes pagination, which invalidates the page references verified in the previous round.
+If a later batch changes quoted text, synchronize and verify the affected quotes. If it may change
+pagination or numbering, recompile and recheck the affected locations. Reuse other passing checks
+on unchanged artifacts. Stop when the required checks pass and there is no new edit, failed check,
+or unresolved issue needing follow-up; do not restart the full sweep to seek additional changes.

@@ -16,12 +16,14 @@ If any element is missing, the module reads as a black box. Flag the gap.
 
 ## Pre-writing checklist
 
-Before drafting Method, confirm with the user:
+Before drafting Method, extract the following from the supplied material and prior decisions. Apply `static/core/workflow.md` step 3b only to material gaps; this checklist does not create a separate confirmation round:
 
 - Task formulation: inputs, outputs, scope.
 - Overview figure / pipeline diagram: does one exist? It anchors the section.
 - Notation: defined once and consistent.
 - Reproducibility scope: code, weights, data — what will be released.
+
+Use an explicit placeholder for an isolated missing detail or release commitment. If a missing fact determines the method itself, ask before asserting it; do not infer an implementation from a familiar method name.
 
 ## Forbidden vague phrases
 

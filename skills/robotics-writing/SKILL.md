@@ -62,7 +62,7 @@ Apply the loaded fragments in this priority order:
 5. Venue-specific framing and constraints.
 6. Language-specific sentence and paragraph rules (apply last).
 
-For `task=manuscript`, run the workflow in `core/workflow.md` end-to-end. Do not skip planning just because the user asked for prose immediately.
+For `task=manuscript`, apply `static/core/workflow.md` to the requested scope. Keep routine planning internal and draft directly when the supplied material is sufficient; use step 3b only for unresolved information that materially affects the draft.
 
 When drafting or restructuring Results, or compressing a full manuscript's main
 text, also load `../nature-shared/core/main-text-discipline.md` before building

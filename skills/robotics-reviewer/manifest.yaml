@@ -28,5 +28,5 @@ references:
       path: references/role-boundaries.md
     - condition: final venue-policy, reviewer-isolation, severity, groundedness, coverage, and non-invention QA before delivery
       path: references/qa-checklist.md
-    - condition: checking the manuscript against itself — headline counts that do not reconcile with the Methods, a metric reported at two precisions, superlatives contradicted by the paper's own tables, overlapping error bars presented as an advantage, and internal summaries that disagree; these are the cheapest findings a referee can make and belong in Major or Minor Concerns with the contradicting table cited
+    - condition: checking manuscript-internal consistency — headline counts that do not reconcile with the Methods, a metric reported at two precisions, superlatives contradicted by tables, significance or equivalence inferred from error-bar overlap alone, or internal summaries that disagree; assess concerns against the underlying evidence and statistical design
       path: ../nature-shared/core/consistency-sweep.md

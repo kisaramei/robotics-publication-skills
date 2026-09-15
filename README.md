@@ -14,10 +14,10 @@
 | `robotics-writing` | 论文规划、章节写作、结构重建与首次投稿材料 | 由 `nature-writing` 适配 |
 | `robotics-reviewer` | 投稿前模拟审稿、实验有效性与拒稿风险检查 | 由 `nature-reviewer` 适配 |
 | `robotics-response` | 期刊返修、逐点回复与会议 rebuttal | 由 `nature-response` 适配 |
-| `nature-polishing` | 学术英语润色、压缩与中英转换 | 保留上游版本 |
-| `nature-ref-verifier` | 参考文献、DOI 与书目信息核验 | 保留上游版本 |
-| `nature-statistics` | 统计设计和论文统计报告审查 | 保留上游版本 |
-| `nature-shared` | 共享写作规则和运行依赖，不作为主要入口 | 保留上游版本 |
+| `nature-polishing` | 学术英语润色、压缩与中英转换 | 上游基础上调整句长、输出与检查流程 |
+| `nature-ref-verifier` | 参考文献、DOI 与书目信息核验 | 上游基础上修正 Crossref 未收录的判断 |
+| `nature-statistics` | 统计设计和论文统计报告审查 | 保留上游主体，修正共享统计检查的触发描述 |
+| `nature-shared` | 共享写作规则和运行依赖，不作为主要入口 | 上游基础上修正统计解释与检查范围 |
 
 最小领域套装为三个 `robotics-*` Skills 加 `nature-shared`。其余三个通用组件可按需要安装。
 
@@ -31,7 +31,7 @@
 
 ### `robotics-reviewer`
 
-- 默认生成三份相互隔离的模拟审稿意见，再进行独立综合。
+- 完整模拟审稿默认生成三份相互隔离的意见，再进行独立综合；按用户指定人数和结构交付，单人审稿不补多份报告。
 - 优先使用目标 venue、track 和年份的当前官方规则；无法核实时明确退回通用 rubric。
 - 检查数据泄漏、比较公平性、统计单位、跨 embodiment、sim-to-real、控制频率、安全与复现。
 
@@ -40,6 +40,15 @@
 - 明确区分 `journal-revision` 与 `conference-rebuttal`。
 - 会议路径先核对当届官方规则、字数或字符预算、可见性以及允许修改范围。
 - 不虚构实验、结果、引用、修改位置，也不把尚未执行的工作写成已经完成。
+
+### 2026-09-15 工作流修订
+
+结合 [OpenAI 的 GPT-6 skills 指南](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)，清理影响任务完成的重复和冲突规则，保持模型无关的领域工作流：
+
+- 已有材料充分时直接写作；仅当缺失信息影响本次科学主张或修回策略时询问，局部回复润色不强制确认大修/小修。
+- 输出随任务规模调整，句长作为参考；每段围绕一个中心信息，可包含支持它的证据、比较和限定。
+- 每批相关编辑后复查受影响内容，最终交付前完成必要核验；检查通过且无新改动、失败或未解决问题时结束。
+- 修正两处原有判断：Crossref 返回 404 不等于 DOI 无效，误差棒重叠本身不能决定显著性或等效性；区分置信水平与显著性水平。
 
 ## 安装
 
@@ -103,10 +112,11 @@ robotics-publication-skills/
 
 ## 验证状态
 
-- 三个领域版均通过 Skill frontmatter 与名称一致性检查。
-- Manifest 引用路径检查通过：writing 55/55、reviewer 10/10、response 16/16。
-- 11 项路由与指令契约测试、7 项 response package 一致性测试通过。
-- 三个领域版及其共享依赖均已在本仓库目录结构下通过引用完整性检查；四个保留组件来自固定的上游提交。
+- 七个组件均通过 Skill frontmatter 与名称一致性检查。
+- 145 个 Manifest 引用路径均可解析，Markdown 本地链接检查通过。
+- 11 项路由与指令契约测试、7 项 response package 一致性测试、5 项共享一致性测试通过。
+- 4 个小型使用场景已抽查：材料完整时直接起草 Method、局部回复润色、短句英文润色、单人简短审稿。该抽查不代表跨模型效果基准测试。
+- 所有组件均以固定上游提交为基线；后续本地修订范围见下方修改声明。
 
 这些检查验证目录、路由和指令契约，不代替目标 venue 当届官方投稿规则。涉及页数、匿名、附件、artifact、rebuttal 时限或字数限制时，仍应以当前官方说明为准。
 
@@ -118,7 +128,7 @@ robotics-publication-skills/
 - 适配基线：[commit `ebd722e18808442688bd205917a3e774195c258f`](https://github.com/Yuan1z0825/nature-skills/commit/ebd722e18808442688bd205917a3e774195c258f)
 - 获取日期：2026-09-02
 
-修改范围集中在 `robotics-writing`、`robotics-reviewer` 和 `robotics-response`。这些目录分别由上游的 `nature-writing`、`nature-reviewer` 和 `nature-response` 派生；其名称、路由、领域检查和输出契约已经修改。`nature-polishing`、`nature-ref-verifier`、`nature-statistics` 与 `nature-shared` 保留自上述固定提交。
+`robotics-writing`、`robotics-reviewer` 和 `robotics-response` 分别由上游的 `nature-writing`、`nature-reviewer` 和 `nature-response` 派生；其名称、路由、领域检查和输出契约已经修改。四个 `nature-*` 组件也来自上述固定提交，并于 2026-09-15 按本页所列范围作局部修订；它们不再全部与上游基线逐字一致。
 
 感谢原项目作者和贡献者公开这套 Skill 设计与实现。本项目保留原始来源和许可证信息，后续更新不会自动覆盖领域适配内容，而是先比较上游变化再选择性合并。
 

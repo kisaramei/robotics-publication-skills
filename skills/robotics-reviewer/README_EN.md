@@ -9,7 +9,7 @@
 - Stress-test a manuscript, abstract, figure set, or result storyline before submission.
 - Evaluate against the current official target-venue criteria. Use a clearly labeled generic rubric when current policy cannot be verified.
 - Stress-test leakage and contamination, matched baselines, seeds and episode independence, ablations, OOD and embodiment transfer, sim-to-real evidence, latency and control rate, failures and safety, and reproducibility.
-- Generate three reviewer reports in mutually blind isolated contexts, then create a separate cross-review synthesis only after every report is frozen.
+- For a full mock review, default to three reviewer reports in mutually blind isolated contexts, then create a separate cross-review synthesis only after every report is frozen. Honor the requested count and structure.
 - Mark unsupported claims, technical defects, evidence-chain breaks, and barriers for non-specialist readers.
 - Separate comments into `Major Concerns` and `Minor Comments`, marking Major issues that block the central case as `Blocking Yes`.
 - Keep severe criticism direct, professional, and evidence-grounded; keep minor comments specific and actionable without inventing issues to fill a quota.
@@ -24,6 +24,7 @@
 - "Review this robotics paper using the current official CoRL reviewer guidelines."
 - "Before submission, find the technical issues reviewers are most likely to attack."
 - "Give me three reviewer reports and one synthesis, not a rebuttal."
+- "Use one reviewer for this experiments section. No synthesis needed."
 
 ## What You Need To Provide
 
@@ -33,8 +34,9 @@
 
 ## Outputs
 
-- Three peer-review style reports.
-- Cross-review synthesis: consensus problems, divergent emphases, and editor-level risks.
+- The requested number of peer-review style reports, defaulting to three for a full mock review when no count is specified.
+- Multi-reviewer tasks include cross-review synthesis by default, covering consensus problems, divergent emphases, and editor-level risks; users may request reports only.
+- Single-reviewer tasks add neither other reviewers nor cross-review synthesis. A requested summary covers that report without claiming consensus.
 - Traceable concerns with stable IDs, claim pointers, evidence pointers, and resolution tests.
 - Tiered Major/Minor comments, blocking risks, and a deduplicated minor-revision checklist.
 - List of experiments, analyses, narrative changes, or figure evidence that must be strengthened.

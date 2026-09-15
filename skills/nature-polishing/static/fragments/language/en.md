@@ -2,10 +2,9 @@
 
 ## Sentence rules
 
-- In polished prose, aim for sentences in the `10-30` word range.
-- Keep every sentence at `<= 30` words.
-- Do not produce full sentences under `10` words unless the user explicitly asks for terse style or the item is a heading, label, or fixed technical expression.
-- If any sentence exceeds `20` words, check whether it contains more than one main proposition.
+- Treat `10-30` words as a rough readability guide, not a required range.
+- Allow natural short sentences and longer sentences needed to preserve precise technical relationships, comparisons, or qualifications. Do not pad or split a clear sentence solely to meet a word count.
+- Check long sentences for overload, ambiguity, and loss of the main proposition.
 - Split overloaded sentences rather than polishing them cosmetically.
 - The last sentence of a paragraph often becomes the longest and weakest. Check it explicitly.
 - Prefer one core subject-verb proposition per sentence.

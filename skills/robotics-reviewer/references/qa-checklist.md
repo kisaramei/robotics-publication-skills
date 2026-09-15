@@ -1,5 +1,13 @@
 # QA checklist
 
+Check against the reviewer count and output structure selected under
+[Review scope](../SKILL.md#review-scope), not against a fixed three-report package.
+For one reviewer, mark mutual-blindness, cross-review synthesis, consensus, and overlap checks
+not applicable. Their absence is not a QA failure. Other grounding and severity checks still apply.
+Brief or targeted local reviews use the compact structure in `report-structure.md`. Required
+evidence, severity, impact, and resolution information may share one bullet; separate fields,
+empty categories, and repeated summaries are not required.
+
 ## Reviewer-isolation checks
 
 - Reviewer emphasis briefs were fixed before any report was generated.
@@ -7,7 +15,7 @@
 - Each reviewer ran in a separate context, subagent, process, or invocation and received no other review, ledger, synthesis, consensus hint, or overlap target.
 - Every individual report was finalized and locked before comparison began.
 - No individual report cites, agrees with, answers, anticipates, or refers to another reviewer.
-- Cross-review synthesis was generated afterward in a separate editor/author-facing pass and was not fed back to reviewers.
+- If selected, cross-review synthesis was generated afterward in a separate editor/author-facing pass and was not fed back to reviewers.
 - If technical isolation was unavailable, the output explicitly says mutual blindness was not guaranteed or provides only one reviewer report for the invocation.
 
 ## Grounding checks
@@ -45,17 +53,21 @@
   downgraded to Minor merely because it can be described briefly.
 - Localized presentation, terminology, citation, and reporting issues remain Minor unless they
   materially affect inference or reproducibility.
-- Empty tiers say `None identified from the supplied material`; concerns are never invented to fill
-  Major/Minor sections or equalize reviewer counts.
+- Full reports label empty tiers `None identified from the supplied material`; compact reviews
+  omit them. Concerns are never invented to fill Major/Minor sections or equalize reviewer counts.
 
 ## Coverage checks
 
-- Confirm all three reviewer reports exist.
+- Confirm exactly the selected number of reviewer reports exist. Do not add reviewers to satisfy the default count.
 - Confirm all reviewers received the same source packet and criteria, with only their preassigned emphasis briefs differing; no invented identity or unequal evidence access explains their conclusions.
-- Confirm each reviewer addresses all verified venue criteria and applicable generic axes, even if briefly.
-- Confirm each reviewer visibly contains both `Major Concerns` and `Minor Comments` sections.
-- Confirm a `Cross-review synthesis (post-review; not shown to reviewers)` section exists.
-- Confirm a `Risk / unsupported claims` section exists.
+- Confirm each reviewer considered the criteria and axes applicable to the requested scope.
+  Compact reviews need not display an axis-by-axis assessment.
+- Confirm full reports contain `Major Concerns` and `Minor Comments` sections. In compact
+  reviews, check per-issue severity labels and omit empty category headings.
+- Confirm cross-review synthesis exists only when selected for multiple reviewers; a reports-only request does not require it. For one reviewer, any requested summary must not claim consensus.
+- Confirm assessment limitations are explicit in `Risk / unsupported claims` or the user's selected structure.
+- For a brief or local request, confirm the output uses one boundary sentence and compact
+  issue bullets without duplicate setup, assessment, blocking-summary, or risk sections.
 
 ## Boundary checks
 
@@ -77,9 +89,9 @@
 
 ## Consistency checks
 
-- Verifiable manuscript facts should stay consistent across all three reviewers even though their analyses were independent.
+- Verifiable manuscript facts should stay consistent across the selected reports even though their analyses were independent.
 - Divergence may reflect weighting or interpretation of the same evidence, not access to different or invented facts.
-- Technical failings listed in the synthesis should match issues already raised in at least one individual report.
+- When synthesis is selected, its technical failings should match issues already raised in at least one individual report. Apply the following consensus and checklist checks only to that synthesis.
 - Consensus issues were raised by at least two reviewer reports and map to the same underlying issue key.
 - Consensus blocking and other consensus major concerns preserve the original severity and
   blocking status of the source concerns.
@@ -88,6 +100,8 @@
 
 ## Overlap checks
 
+Apply only to a multi-reviewer task with synthesis.
+
 - Normalize concerns to synthesis keys only after all individual reports are frozen.
 - Measure pairwise overlap descriptively as `shared synthesis keys / smaller report issue count` when useful.
 - Do not revise, redistribute, suppress, or add concerns to hit an overlap target. High overlap can be legitimate independent consensus; low overlap can be legitimate difference in judgment.
@@ -95,7 +109,7 @@
 
 ## Final release rule
 
-- If the skill cannot produce a grounded three-reviewer package without major invention, it should return a bounded draft review with explicit missing-information flags rather than pretending certainty.
+- If the skill cannot produce the selected review package without major invention, it should return a bounded draft review with explicit missing-information flags rather than pretending certainty.
 - If the skill cannot isolate reviewer contexts, it must not label a multi-reviewer package mutually blind; use separate invocations or state the technical limitation.
 - Do not release the report when Major/Minor labels or Blocking flags conflict with their stated
   rationale, manuscript impact, or resolution test.

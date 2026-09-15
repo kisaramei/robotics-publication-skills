@@ -40,3 +40,24 @@ The user supplies one complete manuscript and asks for three reviewer reports pl
 - [ ] Natural overlap remains unchanged.
 - [ ] Synthesis is clearly post-review and not shown to reviewers.
 - [ ] Consensus is derived only from independently raised concerns.
+
+## Single-reviewer request
+
+The user supplies the same manuscript and asks, "Use only one reviewer. No cross-review synthesis."
+
+- Generate exactly one report with grounded Major Concerns and Minor Comments, stable IDs,
+  claim pointers, evidence pointers, and calibrated Blocking flags.
+- Keep the same assessment boundary and do not invent concerns to replace absent reviewers.
+- Do not launch Reviewer 2 or Reviewer 3, generate cross-review synthesis, or claim consensus.
+- QA checks the selected one-report scope. Cross-review isolation, synthesis, and overlap checks
+  are not applicable and do not cause failure or additional work.
+- If the user additionally requests a summary, summarize that report without presenting it as
+  agreement among reviewers.
+
+## Multiple reports without synthesis
+
+The user asks for two mutually blind reviewer reports and no synthesis.
+
+- Generate and freeze exactly two isolated reports using the same source packet.
+- Preserve natural overlap or disagreement, then return the two reports without a synthesis.
+- QA passes without Reviewer 3 or a cross-review section when all applicable checks pass.
