@@ -34,6 +34,7 @@ output structure; a one-reviewer request needs one report and no cross-review sy
 6. Freeze all reviewer reports.
    - Do not let reviewers read, cite, agree with, answer, or anticipate one another.
    - Do not redistribute, add, remove, or rephrase concerns after comparison merely to change overlap.
+   - When the [numerical audit](../SKILL.md#numerical-audit) applies, check the selected evidence after freezing reports and before synthesis. Attribute additional findings to the audit. Only the frozen reports count toward reviewer consensus.
    - Follow the selected output mode in `report-structure.md`. Full reports use separate Major/Minor sections and label empty tiers; compact reviews use inline severity and omit empty tiers. Never fill a concern quota.
 7. If selected for a multi-reviewer task, generate a post-review synthesis in a separate context.
    - Summarize consensus blocking concerns, other major concerns, the minor-revision checklist,

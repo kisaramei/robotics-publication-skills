@@ -4,7 +4,8 @@ description: >-
   Run evidence-grounded mock peer review for robotics, embodied AI, VLA, ML, CV, or NLP
   manuscripts before submission. Use for reviewer reports, pre-submission critique, venue-aware
   readiness checks, novelty and baseline assessment, experimental-validity review, simulated
-  reviewers, 模拟审稿, 投稿前自审, or 帮我审一下论文. Evaluate against the named venue's
+  reviewers, 模拟审稿, 投稿前自审, or 帮我审一下论文. Audit reported numbers in a
+  whole-manuscript review or when the user asks to check a specific table. Evaluate against the named venue's
   current verified criteria when available, never remembered or hardcoded policy. This is not
   for drafting an author rebuttal or response letter.
 ---
@@ -46,6 +47,15 @@ a single review may run in the current context.
 
 Use the compact output below when the user requests a brief review or a targeted local check,
 such as an abstract's argument. Use the full report when requested or for a full mock review.
+
+### Numerical audit
+
+Run the [numerical audit](references/numerical-audit.md) only when the user requests a
+whole-manuscript review or identifies a specific table to check. Follow the requested scope
+even when a full PDF is attached. A section review or a passing table citation does not
+activate the audit. For a table request, check only the selected tables, their captions, and
+the passages needed to interpret or verify them. If the table check is the entire request,
+return the findings directly and skip the mock-review workflow.
 
 ## Default stance
 
@@ -133,6 +143,8 @@ If the material is partial, perform a bounded review and state the assessment bo
 6. Inside each review, independently assess the applicable venue criteria and build a private
    concern ledger. Load only the applicable ML, VLA, or robotics gates.
 7. Finalize and freeze every reviewer report before comparison.
+   When **Numerical audit** applies, run it now. Report additional findings separately from
+   reviewer judgments, preserving the selected reviewer count and output length.
 8. If the selected scope includes cross-review synthesis, reconcile independently created
    concerns in a separate pass. Label consensus only when at least two frozen reports raised
    the same underlying issue. Skip this step for a single report.
@@ -249,7 +261,7 @@ Risk / unsupported claims
 | [references/report-structure.md](references/report-structure.md) | Applying the detailed output contract |
 | [references/role-boundaries.md](references/role-boundaries.md) | Preserving reviewer blindness and editor-versus-reviewer boundaries |
 | [references/qa-checklist.md](references/qa-checklist.md) | Finalizing a grounded review package |
-| [../nature-shared/core/consistency-sweep.md](../nature-shared/core/consistency-sweep.md) | Checking manuscript-internal terminology, counts, metrics, and table consistency |
+| [../nature-shared/core/consistency-sweep.md](../nature-shared/core/consistency-sweep.md) | Checking terminology within the requested scope or cross-checking claims during an activated numerical audit |
 | [references/editorial criteria and processes.md](<references/editorial criteria and processes.md>) | Nature is the verified target venue or the user explicitly requests a Nature-style review |
 
 ## Source hierarchy

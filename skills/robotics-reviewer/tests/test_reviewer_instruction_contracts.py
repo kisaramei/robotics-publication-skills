@@ -35,6 +35,13 @@ def test_traceability_and_non_invention_are_required() -> None:
     assert "Do not invent experiments" in router
 
 
+def test_numerical_audit_follows_requested_scope() -> None:
+    router = " ".join(read("SKILL.md").split())
+    assert "only when the user requests a whole-manuscript review or identifies a specific table to check" in router
+    assert "A section review or a passing table citation does not activate the audit" in router
+    assert "check only the selected tables" in router
+
+
 def test_punctuation_guard_is_part_of_the_reviewer_contract() -> None:
     router = read("SKILL.md")
 

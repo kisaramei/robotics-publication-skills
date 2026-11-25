@@ -28,5 +28,7 @@ references:
       path: references/role-boundaries.md
     - condition: final venue-policy, reviewer-isolation, severity, groundedness, coverage, and non-invention QA before delivery
       path: references/qa-checklist.md
-    - condition: checking manuscript-internal consistency — headline counts that do not reconcile with the Methods, a metric reported at two precisions, superlatives contradicted by tables, significance or equivalence inferred from error-bar overlap alone, or internal summaries that disagree; assess concerns against the underlying evidence and statistical design
+    - condition: the user requests a whole-manuscript review or identifies specific tables to check
+      path: references/numerical-audit.md
+    - condition: checking terminology within the requested scope or cross-checking claims during an activated numerical audit
       path: ../nature-shared/core/consistency-sweep.md

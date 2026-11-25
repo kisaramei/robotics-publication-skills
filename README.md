@@ -34,6 +34,7 @@
 - 完整模拟审稿默认生成三份相互隔离的意见，再进行独立综合；按用户指定人数和结构交付，单人审稿不补多份报告。
 - 优先使用目标 venue、track 和年份的当前官方规则；无法核实时明确退回通用 rubric。
 - 检查数据泄漏、比较公平性、统计单位、跨 embodiment、sim-to-real、控制频率、安全与复现。
+- 整稿审查时核查支撑主要结论的数值。指定表格时，只核查该表及相关说明。即使附上完整 PDF，只要求审摘要或某一节也不会触发专项数值核查。
 
 ### `robotics-response`
 
@@ -113,8 +114,8 @@ robotics-publication-skills/
 ## 验证状态
 
 - 七个组件均通过 Skill frontmatter 与名称一致性检查。
-- 145 个 Manifest 引用路径均可解析，Markdown 本地链接检查通过。
-- 11 项路由与指令契约测试、7 项 response package 一致性测试、5 项共享一致性测试通过。
+- 146 个 Manifest 引用路径均可解析，Markdown 本地链接检查通过。
+- 12 项路由与指令契约测试、10 项返修材料一致性测试和 9 项共享一致性测试通过。
 - 4 个小型使用场景已抽查：材料完整时直接起草 Method、局部回复润色、短句英文润色、单人简短审稿。该抽查不代表跨模型效果基准测试。
 - 所有组件均以固定上游提交为基线；后续本地修订范围见下方修改声明。
 
@@ -131,6 +132,8 @@ robotics-publication-skills/
 `robotics-writing`、`robotics-reviewer` 和 `robotics-response` 分别由上游的 `nature-writing`、`nature-reviewer` 和 `nature-response` 派生；其名称、路由、领域检查和输出契约已经修改。四个 `nature-*` 组件也来自上述固定提交，并于 2026-09-15 按本页所列范围作局部修订；它们不再全部与上游基线逐字一致。
 
 感谢原项目作者和贡献者公开这套 Skill 设计与实现。本项目保留原始来源和许可证信息，后续更新不会自动覆盖领域适配内容，而是先比较上游变化再选择性合并。
+
+2026-11-25 合入两处上游脚本修复及对应测试，涵盖 [LaTeX 带点文件名的解析](https://github.com/Yuan1z0825/nature-skills/commit/c98559061c0f277339ea2c8259fd2f41e3746688)和[句末数值识别与单位大小写](https://github.com/Yuan1z0825/nature-skills/commit/e25620c4eb9544b83f2fc45c3255c83a2532a7cc)。参照[上游整稿数值核查](https://github.com/Yuan1z0825/nature-skills/commit/aadebcd4e0fea91949238d6b6947e8744b783a4c)，为机器人实验补充了成功率分母、跨任务平均和比较排名的核查说明。
 
 ## License
 
